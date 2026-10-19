@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Для Ветки ♡</title>
+
+<style>
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+body {
+
+  margin: 0;
+
+  background: #171717;
+
+  color: #f5f5f5;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  min-height: 100vh;
+
+}
+
+.container {
+
+  width: min(850px, 92%);
+
+  margin: 0 auto;
+
+  padding: 45px 0 75px;
+
+}
+
+.lock, .letter {
+
+  background: #222;
+
+  border: 1px solid #484848;
+
+  border-radius: 24px;
+
+  padding: clamp(22px, 5vw, 48px);
+
+  box-shadow: 0 15px 50px #0005;
+
+}
+
+.lock {
+
+  max-width: 480px;
+
+  margin: 8vh auto;
+
+  text-align: center;
+
+}
+
+.eyebrow {
+
+  font: 11px Arial, sans-serif;
+
+  letter-spacing: 4px;
+
+  color: #aaa;
+
+  text-transform: uppercase;
+
+}
+
+.heart {
+
+  font-size: 42px;
+
+  margin: 24px 0 8px;
+
+}
+
+h1 {
+
+  font-size: clamp(38px, 8vw, 58px);
+
+  font-weight: normal;
+
+  margin: 12px 0;
+
+}
+
+.subtitle {
+
+  font: 15px/1.8 Arial, sans-serif;
+
+  color: #c6c6c6;
+
+}
+
+input {
+
+  display: block;
+
+  width: 100%;
+
+  padding: 16px;
+
+  margin: 25px 0 12px;
+
+  border-radius: 12px;
+
+  border: 1px solid #666;
+
+  background: #151515;
+
+  color: white;
+
+  text-align: center;
+
+  font-size: 20px;
+
+  letter-spacing: 6px;
+
+}
+
+button {
+
+  width: 100%;
+
+  border: none;
+
+  border-radius: 12px;
+
+  padding: 16px;
+
+  background: #f5f5f5;
+
+  color: #171717;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: .2s;
+
+}
+
+button:hover {
+
+  background: #d8d8d8;
+
+  transform: translateY(-2px);
+
+}
+
+#error {
+
+  color: #e9aaaa;
+
+  font: 13px Arial, sans-serif;
+
+  margin-top: 12px;
+
+}
+
+.letter {
+
+  display: none;
+
+  animation: appear .8s ease;
+
+}
+
+.topline {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  color: #aaa;
+
+  font: 11px Arial, sans-serif;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  border-bottom: 1px solid #484848;
+
+  padding-bottom: 22px;
+
+  margin-bottom: 32px;
+
+}
+
+h2 {
+
+  font-size: clamp(42px, 9vw, 72px);
+
+  font-weight: normal;
+
+  line-height: 1.05;
+
+  margin: 0 0 28px;
+
+}
+
+.letter p {
+
+  font-size: clamp(18px, 3vw, 22px);
+
+  line-height: 1.9;
+
+  color: #e5e5e5;
+
+  margin: 0 0 24px;
+
+}
+
+.letter .intro {
+
+  font-size: clamp(22px, 4vw, 29px);
+
+  color: white;
+
+}
+
+.quote {
+
+  font-size: clamp(24px, 5vw, 34px);
+
+  line-height: 1.5;
+
+  padding: 20px 25px;
+
+  border-left: 2px solid white;
+
+  margin: 35px 0;
+
+}
+
+.signature {
+
+  border-top: 1px solid #484848;
+
+  margin-top: 40px;
+
+  padding-top: 28px;
+
+  font-size: clamp(24px, 5vw, 34px);
+
+  line-height: 1.5;
+
+}
+
+.signature small {
+
+  display: block;
+
+  margin-top: 15px;
+
+  color: #aaa;
+
+  font: 13px Arial, sans-serif;
+
+  letter-spacing: 2px;
+
+}
+
+.footer {
+
+  position: fixed;
+
+  bottom: 10px;
+
+  right: 14px;
+
+  color: #aaa;
+
+  font: 12px Arial, sans-serif;
+
+}
+
+@keyframes appear {
+
+  from { opacity: 0; transform: translateY(15px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <section class="lock" id="lock">
+
+    <div class="eyebrow">маленькое письмо для тебя</div>
+
+    <div class="heart">♡</div>
+
+    <h1>Для Ветки</h1>
+
+    <p class="subtitle">
+
+      Я кое-что приготовил для тебя.<br>
+
+      Введи секретный код, чтобы открыть открытку.
+
+    </p>
+
+    <form id="unlockForm">
+
+      <input
+
+        id="code"
+
+        type="password"
+
+        inputmode="numeric"
+
+        maxlength="6"
+
+        placeholder="••••••"
+
+        aria-label="Секретный код"
+
+        required
+
+      >
+
+      <button type="submit">Открыть открытку ♡</button>
+
+      <div id="error"></div>
+
+    </form>
+
+  </section>
+
+  <article class="letter" id="letter">
+
+    <div class="topline">
+
+      <span>личное письмо</span>
+
+      <span>специально для тебя ♡</span>
+
+    </div>
+
+    <h2>Ветка,<br>это тебе.</h2>
+
+    <p class="intro">
+
+      Я не всегда умею красиво выражать свои мысли,
+
+      поэтому решил написать тебе большое письмо.
+
+      Хочу, чтобы ты знала, насколько мне нравится
+
+      с тобой общаться.
+
+    </p>
+
+    <p>
+
+      Знаешь, Ветка, мне действительно очень нравится
+
+      с тобой разговаривать. И дело даже не в том,
+
+      сколько сообщений мы отправляем друг другу
+
+      или о чём именно говорим. Мне нравится само
+
+      ощущение нашего общения. Иногда достаточно
+
+      увидеть твоё сообщение, чтобы настроение стало
+
+      чуточку лучше.
+
+    </p>
+
+    <p>
+
+      Мне нравится, когда мы можем обсуждать абсолютно
+
+      разные вещи. Когда начинаем с одной темы,
+
+      потом внезапно переходим к другой, смеёмся,
+
+      шутим и можем написать друг другу какую-нибудь
+
+      полную ерунду. В этом и есть особенная прелесть:
+
+      нам необязательно постоянно говорить о чём-то
+
+      серьёзном, чтобы разговор был приятным.
+
+    </p>
+
+    <p>
+
+      Мне нравится ждать твоих сообщений. Бывает,
+
+      что хочется рассказать тебе какую-то мелочь,
+
+      которая произошла за день. Увидел что-то смешное —
+
+      хочется поделиться. Вспомнил интересную историю —
+
+      хочется рассказать именно тебе. И даже если
+
+      ничего особенного не произошло, всё равно
+
+      приятно просто зайти в переписку и поговорить.
+
+    </p>
+
+    <div class="quote">
+
+      «Иногда обычный разговор с человеком способен
+
+      сделать целый день намного лучше».
+
+    </div>
+
+    <p>
+
+      Мне нравится то, что с тобой можно быть собой.
+
+      Не нужно постоянно искать идеальные слова,
+
+      стараться выглядеть невероятно умным или
+
+      придумывать какую-то особенную роль. Можно
+
+      просто общаться, шутить, рассказывать о своих
+
+      мыслях и не переживать, что каждое сообщение
+
+      должно быть каким-то шедевром.
+
+    </p>
+
+    <p>
+
+      Я ценю наши разговоры, наши шутки и моменты,
+
+      когда переписка становится настолько интересной,
+
+      что совершенно не замечаешь, как проходит время.
+
+      Иногда самые приятные воспоминания состоят
+
+      не из каких-то грандиозных событий, а из
+
+      маленьких разговоров, которые почему-то
+
+      остаются в памяти надолго.
+
+    </p>
+
+    <p>
+
+      Мне хочется, чтобы тебе тоже было комфортно
+
+      со мной общаться. Чтобы ты могла рассказывать
+
+      о том, что тебя радует, делиться мыслями,
+
+      смеяться над глупыми шутками или просто
+
+      разговаривать, когда тебе этого хочется.
+
+      Тебе не нужно всегда быть весёлой или
+
+      придумывать интересные темы. Иногда вполне
+
+      достаточно просто быть собой.
+
+    </p>
+
+    <p>
+
+      И да, если я иногда веду себя как настоящий
+
+      балбес, несу какую-то чепуху или не могу
+
+      нормально сформулировать свою мысль, то
+
+      прошу учитывать: это, возможно, часть моего
+
+      уникального таланта. Иногда в голове столько
+
+      всего хочется сказать, что в итоге получается
+
+      совершенно непонятная, но искренняя ерунда.
+
+    </p>
+
+    <div class="quote">
+
+      «Главное ведь не идеальные сообщения,
+
+      а человек, которому действительно хочется написать».
+
+    </div>
+
+    <p>
+
+      Я не хочу превращать это письмо в бесконечные
+
+      громкие обещания. Мне просто хочется честно
+
+      сказать, что я рад нашему общению. Я рад,
+
+      что могу написать тебе, услышать твои мысли,
+
+      посмеяться вместе с тобой и разделить
+
+      какие-то моменты своего дня.
+
+    </p>
+
+    <p>
+
+      Надеюсь, впереди у нас будет ещё очень много
+
+      хороших разговоров. Пусть будут новые шутки,
+
+      смешные истории, неожиданные темы и те самые
+
+      моменты, когда мы оба понимаем, насколько
+
+      же иногда можем быть смешными.
+
+    </p>
+
+    <p>
+
+      Спасибо тебе за твоё время, за внимание
+
+      и за то, что наши разговоры вообще существуют.
+
+      Может быть, некоторые вещи, о которых я написал,
+
+      кажутся совсем простыми. Но именно простые вещи
+
+      иногда и делают общение особенным.
+
+    </p>
+
+    <p>
+
+      Если ты сейчас читаешь это письмо, то знай:
+
+      я действительно хотел сделать для тебя
+
+      что-то приятное. Не просто отправить очередное
+
+      сообщение, а создать маленькое место в интернете,
+
+      где собраны мои мысли о нашем общении.
+
+      Пусть эта открытка будет напоминанием о том,
+
+      что разговаривать с тобой мне правда нравится.
+
+    </p>
+
+    <p>
+
+      И если после прочтения ты хотя бы немного
+
+      улыбнулась, значит, я уже не зря всё это писал.
+
+      Надеюсь, ты почувствовала, что каждое слово
+
+      здесь написано с теплом и хорошим настроением.
+
+    </p>
+
+    <div class="quote">
+
+      Спасибо за наши разговоры, Ветка.
+
+      Надеюсь, впереди их будет ещё очень много. ♡
+
+    </div>
+
+    <p>
+
+      Короче, если подвести итог всему этому
+
+      огромному письму: мне нравится с тобой
+
+      общаться, нравится делиться с тобой мыслями,
+
+      нравится смеяться вместе и нравится то,
+
+      что даже самый обычный разговор с тобой
+
+      может стать приятной частью моего дня.
+
+    </p>
+
+    <div class="signature">
+
+      С теплом и улыбкой ♡
+
+      <small>от shapovv — Ветке</small>
+
+    </div>
+
+  </article>
+
+</div>
+
+<div class="footer">я балбес</div>
+
+<script>
+
+document.getElementById("unlockForm").addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  const code = document.getElementById("code").value.trim();
+
+  const error = document.getElementById("error");
+
+  if (code === "101001") {
+
+    document.getElementById("lock").style.display = "none";
+
+    document.getElementById("letter").style.display = "block";
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+  } else {
+
+    error.textContent = "Неправильный код. Попробуй ещё раз ♡";
+
+    document.getElementById("code").value = "";
+
+  }
+
+});
+
+</script>
+
+</body>
+
+</html>
