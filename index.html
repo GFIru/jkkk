@@ -1,80 +1,669 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="ru">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#050914">
-<title>Открытка для тебя 💙</title>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Для Ветки ♡</title>
+
 <style>
-:root{--blue:#68a5ff;--light:#dce9ff;--muted:#9db6e8;--bg:#030711}
-*{box-sizing:border-box}
-body{margin:0;min-height:100vh;color:var(--light);font-family:ui-rounded,"Segoe UI",system-ui,sans-serif;background:radial-gradient(ellipse at 50% 20%,#0a1a38 0%,#050b18 48%,#02040a 100%);overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.25;background-image:radial-gradient(#80b5ff 1px,transparent 1px);background-size:37px 37px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
-.center{min-height:100vh;display:grid;place-items:center;padding:24px}
-.gate{width:min(440px,100%);text-align:center;padding:34px 26px 30px;border:1px solid #254575;border-radius:24px;background:linear-gradient(145deg,#09152af2,#040914f5);box-shadow:0 20px 80px #0009,0 0 45px #1c65c51c;animation:rise .7s ease both}
-.heart{font-size:48px;color:var(--blue);text-shadow:0 0 25px #3988ff99;animation:pulse 2s infinite}
-h1{font-size:clamp(25px,5vw,34px);margin:10px 0;color:#f5f8ff;letter-spacing:-.7px}
-.sub{color:#a9bfdf;font-size:14px;line-height:1.6;margin:0 auto 22px;max-width:320px}
-input{width:100%;border:1px solid #2a4b7b;background:#020712;color:white;border-radius:12px;padding:15px 16px;text-align:center;font-size:21px;letter-spacing:5px;outline:none}
-input:focus{border-color:#69aaff;box-shadow:0 0 0 3px #438bff20}
-button{width:100%;margin-top:12px;border:0;border-radius:12px;padding:14px 18px;background:linear-gradient(100deg,#246de0,#438eff);color:white;font-weight:750;font-size:15px;box-shadow:0 8px 25px #1260d62c;cursor:pointer;transition:transform .2s,filter .2s}
-button:hover{filter:brightness(1.12);transform:translateY(-1px)}
-.error{min-height:20px;margin:12px 0 0;color:#ff91a4;font-size:13px}
-.hint{margin-top:14px;color:#607da9;font-size:11px}
-.card{display:none;width:min(920px,100%);position:relative;padding:clamp(26px,5vw,58px);border:1px solid #23477b;border-radius:26px;background:linear-gradient(145deg,#050c18f7,#030711fa);box-shadow:0 25px 100px #000a,0 0 70px #2367cf18;overflow:hidden;text-align:center;animation:rise .8s ease both}
-.card:before{content:"";position:absolute;inset:10px;border:1px solid #1b3760;border-radius:19px;pointer-events:none}
-.card-inner{position:relative;max-width:700px;margin:auto}
-.card .heart{font-size:56px;margin-bottom:5px}
-.eyebrow{color:#6d9fe8;text-transform:uppercase;letter-spacing:4px;font-size:11px;font-weight:800}
-.card h2{font-size:clamp(27px,5vw,43px);line-height:1.14;letter-spacing:-1px;margin:12px 0 26px}
-.message{font-size:clamp(15px,2vw,18px);line-height:1.9;color:#d6e4ff;white-space:normal}
-.message p{margin:0 0 17px}
-.signature{margin-top:28px;color:#75aaff;font-size:clamp(23px,4vw,31px);font-style:italic}
-.signature span{display:block;font-size:24px;margin-top:5px}
-.back{width:auto;padding:10px 18px;background:#08172b;border:1px solid #244575;box-shadow:none;font-size:12px;margin-top:28px}
-.doodle{position:absolute;color:#3264b6;font-size:35px;opacity:.45;user-select:none}
-.d1{top:7%;left:5%;transform:rotate(-17deg)}.d2{top:14%;right:5%;transform:rotate(13deg)}.d3{bottom:10%;left:7%;transform:rotate(12deg)}.d4{bottom:12%;right:6%;transform:rotate(-12deg)}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
-@keyframes rise{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:560px){.center{padding:14px}.gate{padding:29px 20px}.card{padding:31px 21px}.card:before{inset:6px}.doodle{font-size:23px;opacity:.3}.message{line-height:1.75}}
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+body {
+
+  margin: 0;
+
+  background: #171717;
+
+  color: #f5f5f5;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  min-height: 100vh;
+
+}
+
+.container {
+
+  width: min(850px, 92%);
+
+  margin: 0 auto;
+
+  padding: 45px 0 75px;
+
+}
+
+.lock, .letter {
+
+  background: #222;
+
+  border: 1px solid #484848;
+
+  border-radius: 24px;
+
+  padding: clamp(22px, 5vw, 48px);
+
+  box-shadow: 0 15px 50px #0005;
+
+}
+
+.lock {
+
+  max-width: 480px;
+
+  margin: 8vh auto;
+
+  text-align: center;
+
+}
+
+.eyebrow {
+
+  font: 11px Arial, sans-serif;
+
+  letter-spacing: 4px;
+
+  color: #aaa;
+
+  text-transform: uppercase;
+
+}
+
+.heart {
+
+  font-size: 42px;
+
+  margin: 24px 0 8px;
+
+}
+
+h1 {
+
+  font-size: clamp(38px, 8vw, 58px);
+
+  font-weight: normal;
+
+  margin: 12px 0;
+
+}
+
+.subtitle {
+
+  font: 15px/1.8 Arial, sans-serif;
+
+  color: #c6c6c6;
+
+}
+
+input {
+
+  display: block;
+
+  width: 100%;
+
+  padding: 16px;
+
+  margin: 25px 0 12px;
+
+  border-radius: 12px;
+
+  border: 1px solid #666;
+
+  background: #151515;
+
+  color: white;
+
+  text-align: center;
+
+  font-size: 20px;
+
+  letter-spacing: 6px;
+
+}
+
+button {
+
+  width: 100%;
+
+  border: none;
+
+  border-radius: 12px;
+
+  padding: 16px;
+
+  background: #f5f5f5;
+
+  color: #171717;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: .2s;
+
+}
+
+button:hover {
+
+  background: #d8d8d8;
+
+  transform: translateY(-2px);
+
+}
+
+#error {
+
+  color: #e9aaaa;
+
+  font: 13px Arial, sans-serif;
+
+  margin-top: 12px;
+
+}
+
+.letter {
+
+  display: none;
+
+  animation: appear .8s ease;
+
+}
+
+.topline {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  color: #aaa;
+
+  font: 11px Arial, sans-serif;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  border-bottom: 1px solid #484848;
+
+  padding-bottom: 22px;
+
+  margin-bottom: 32px;
+
+}
+
+h2 {
+
+  font-size: clamp(42px, 9vw, 72px);
+
+  font-weight: normal;
+
+  line-height: 1.05;
+
+  margin: 0 0 28px;
+
+}
+
+.letter p {
+
+  font-size: clamp(18px, 3vw, 22px);
+
+  line-height: 1.9;
+
+  color: #e5e5e5;
+
+  margin: 0 0 24px;
+
+}
+
+.letter .intro {
+
+  font-size: clamp(22px, 4vw, 29px);
+
+  color: white;
+
+}
+
+.quote {
+
+  font-size: clamp(24px, 5vw, 34px);
+
+  line-height: 1.5;
+
+  padding: 20px 25px;
+
+  border-left: 2px solid white;
+
+  margin: 35px 0;
+
+}
+
+.signature {
+
+  border-top: 1px solid #484848;
+
+  margin-top: 40px;
+
+  padding-top: 28px;
+
+  font-size: clamp(24px, 5vw, 34px);
+
+  line-height: 1.5;
+
+}
+
+.signature small {
+
+  display: block;
+
+  margin-top: 15px;
+
+  color: #aaa;
+
+  font: 13px Arial, sans-serif;
+
+  letter-spacing: 2px;
+
+}
+
+.footer {
+
+  position: fixed;
+
+  bottom: 10px;
+
+  right: 14px;
+
+  color: #aaa;
+
+  font: 12px Arial, sans-serif;
+
+}
+
+@keyframes appear {
+
+  from { opacity: 0; transform: translateY(15px); }
+
+  to { opacity: 1; transform: translateY(0); }
+
+}
+
 </style>
+
 </head>
+
 <body>
-<main class="center">
-  <section class="gate" id="gate" aria-labelledby="gate-title">
+
+<div class="container">
+
+  <section class="lock" id="lock">
+
+    <div class="eyebrow">маленькое письмо для тебя</div>
+
     <div class="heart">♡</div>
-    <h1 id="gate-title">Для особенного человека</h1>
-    <p class="sub">Я приготовил для тебя маленькую открытку. Введи код, чтобы открыть её 💙</p>
-    <form id="code-form">
-      <input id="code" inputmode="numeric" autocomplete="off" maxlength="6" placeholder="••••••" aria-label="Код открытки" required>
-      <button type="submit">Открыть открытку ✨</button>
-      <p class="error" id="error" aria-live="polite"></p>
+
+    <h1>Для Ветки</h1>
+
+    <p class="subtitle">
+
+      Я кое-что приготовил для тебя.<br>
+
+      Введи секретный код, чтобы открыть открытку.
+
+    </p>
+
+    <form id="unlockForm">
+
+      <input
+
+        id="code"
+
+        type="password"
+
+        inputmode="numeric"
+
+        maxlength="6"
+
+        placeholder="••••••"
+
+        aria-label="Секретный код"
+
+        required
+
+      >
+
+      <button type="submit">Открыть открытку ♡</button>
+
+      <div id="error"></div>
+
     </form>
-    <div class="hint">маленький секрет, только для тебя</div>
+
   </section>
 
-  <section class="card" id="card" aria-labelledby="card-title">
-    <span class="doodle d1">♡</span><span class="doodle d2">✧ ♡</span><span class="doodle d3">♡</span><span class="doodle d4">✧</span>
-    <div class="card-inner">
-      <div class="heart">♡</div>
-      <div class="eyebrow">несколько слов от сердца</div>
-      <h2 id="card-title">Я обожаю свою интернет-подругу!</h2>
-      <div class="message">
-        <p>Даже если между нами расстояние и мы не можем просто увидеться в любой момент, ты всё равно стала для меня очень близким человеком.</p>
-        <p>Мне нравится общаться с тобой, читать твои сообщения, делиться мыслями и смеяться вместе с тобой. Иногда одно твоё сообщение способно сделать мой день намного лучше.</p>
-        <p>Спасибо тебе за твою доброту, за поддержку, за искренность и за то, что ты есть. Мне дорого наше общение, и я очень ценю тебя такой, какая ты есть.</p>
-        <p>Пусть между нами сколько угодно километров — я рад, что однажды наши пути пересеклись в этом огромном интернете. Надеюсь, впереди у нас будет ещё много хороших разговоров, смешных моментов и тёплых воспоминаний.</p>
-        <p><strong>Ты правда очень особенная для меня. Я тебя обожаю! 💙</strong></p>
-      </div>
-      <div class="signature">— от shapovva <span>♡</span></div>
-      <button class="back" id="back">← Закрыть открытку</button>
+  <article class="letter" id="letter">
+
+    <div class="topline">
+
+      <span>личное письмо</span>
+
+      <span>специально для тебя ♡</span>
+
     </div>
-  </section>
-</main>
+
+    <h2>Ветка,<br>это тебе.</h2>
+
+    <p class="intro">
+
+      Я не всегда умею красиво выражать свои мысли,
+
+      поэтому решил написать тебе большое письмо.
+
+      Хочу, чтобы ты знала, насколько мне нравится
+
+      с тобой общаться.
+
+    </p>
+
+    <p>
+
+      Знаешь, Ветка, мне действительно очень нравится
+
+      с тобой разговаривать. И дело даже не в том,
+
+      сколько сообщений мы отправляем друг другу
+
+      или о чём именно говорим. Мне нравится само
+
+      ощущение нашего общения. Иногда достаточно
+
+      увидеть твоё сообщение, чтобы настроение стало
+
+      чуточку лучше.
+
+    </p>
+
+    <p>
+
+      Мне нравится, когда мы можем обсуждать абсолютно
+
+      разные вещи. Когда начинаем с одной темы,
+
+      потом внезапно переходим к другой, смеёмся,
+
+      шутим и можем написать друг другу какую-нибудь
+
+      полную ерунду. В этом и есть особенная прелесть:
+
+      нам необязательно постоянно говорить о чём-то
+
+      серьёзном, чтобы разговор был приятным.
+
+    </p>
+
+    <p>
+
+      Мне нравится ждать твоих сообщений. Бывает,
+
+      что хочется рассказать тебе какую-то мелочь,
+
+      которая произошла за день. Увидел что-то смешное —
+
+      хочется поделиться. Вспомнил интересную историю —
+
+      хочется рассказать именно тебе. И даже если
+
+      ничего особенного не произошло, всё равно
+
+      приятно просто зайти в переписку и поговорить.
+
+    </p>
+
+    <div class="quote">
+
+      «Иногда обычный разговор с человеком способен
+
+      сделать целый день намного лучше».
+
+    </div>
+
+    <p>
+
+      Мне нравится то, что с тобой можно быть собой.
+
+      Не нужно постоянно искать идеальные слова,
+
+      стараться выглядеть невероятно умным или
+
+      придумывать какую-то особенную роль. Можно
+
+      просто общаться, шутить, рассказывать о своих
+
+      мыслях и не переживать, что каждое сообщение
+
+      должно быть каким-то шедевром.
+
+    </p>
+
+    <p>
+
+      Я ценю наши разговоры, наши шутки и моменты,
+
+      когда переписка становится настолько интересной,
+
+      что совершенно не замечаешь, как проходит время.
+
+      Иногда самые приятные воспоминания состоят
+
+      не из каких-то грандиозных событий, а из
+
+      маленьких разговоров, которые почему-то
+
+      остаются в памяти надолго.
+
+    </p>
+
+    <p>
+
+      Мне хочется, чтобы тебе тоже было комфортно
+
+      со мной общаться. Чтобы ты могла рассказывать
+
+      о том, что тебя радует, делиться мыслями,
+
+      смеяться над глупыми шутками или просто
+
+      разговаривать, когда тебе этого хочется.
+
+      Тебе не нужно всегда быть весёлой или
+
+      придумывать интересные темы. Иногда вполне
+
+      достаточно просто быть собой.
+
+    </p>
+
+    <p>
+
+      И да, если я иногда веду себя как настоящий
+
+      балбес, несу какую-то чепуху или не могу
+
+      нормально сформулировать свою мысль, то
+
+      прошу учитывать: это, возможно, часть моего
+
+      уникального таланта. Иногда в голове столько
+
+      всего хочется сказать, что в итоге получается
+
+      совершенно непонятная, но искренняя ерунда.
+
+    </p>
+
+    <div class="quote">
+
+      «Главное ведь не идеальные сообщения,
+
+      а человек, которому действительно хочется написать».
+
+    </div>
+
+    <p>
+
+      Я не хочу превращать это письмо в бесконечные
+
+      громкие обещания. Мне просто хочется честно
+
+      сказать, что я рад нашему общению. Я рад,
+
+      что могу написать тебе, услышать твои мысли,
+
+      посмеяться вместе с тобой и разделить
+
+      какие-то моменты своего дня.
+
+    </p>
+
+    <p>
+
+      Надеюсь, впереди у нас будет ещё очень много
+
+      хороших разговоров. Пусть будут новые шутки,
+
+      смешные истории, неожиданные темы и те самые
+
+      моменты, когда мы оба понимаем, насколько
+
+      же иногда можем быть смешными.
+
+    </p>
+
+    <p>
+
+      Спасибо тебе за твоё время, за внимание
+
+      и за то, что наши разговоры вообще существуют.
+
+      Может быть, некоторые вещи, о которых я написал,
+
+      кажутся совсем простыми. Но именно простые вещи
+
+      иногда и делают общение особенным.
+
+    </p>
+
+    <p>
+
+      Если ты сейчас читаешь это письмо, то знай:
+
+      я действительно хотел сделать для тебя
+
+      что-то приятное. Не просто отправить очередное
+
+      сообщение, а создать маленькое место в интернете,
+
+      где собраны мои мысли о нашем общении.
+
+      Пусть эта открытка будет напоминанием о том,
+
+      что разговаривать с тобой мне правда нравится.
+
+    </p>
+
+    <p>
+
+      И если после прочтения ты хотя бы немного
+
+      улыбнулась, значит, я уже не зря всё это писал.
+
+      Надеюсь, ты почувствовала, что каждое слово
+
+      здесь написано с теплом и хорошим настроением.
+
+    </p>
+
+    <div class="quote">
+
+      Спасибо за наши разговоры, Ветка.
+
+      Надеюсь, впереди их будет ещё очень много. ♡
+
+    </div>
+
+    <p>
+
+      Короче, если подвести итог всему этому
+
+      огромному письму: мне нравится с тобой
+
+      общаться, нравится делиться с тобой мыслями,
+
+      нравится смеяться вместе и нравится то,
+
+      что даже самый обычный разговор с тобой
+
+      может стать приятной частью моего дня.
+
+    </p>
+
+    <div class="signature">
+
+      С теплом и улыбкой ♡
+
+      <small>от shapovv — Ветке</small>
+
+    </div>
+
+  </article>
+
+</div>
+
+<div class="footer">я балбес</div>
+
 <script>
-const gate=document.getElementById('gate'),card=document.getElementById('card'),form=document.getElementById('code-form'),code=document.getElementById('code'),error=document.getElementById('error');
-form.addEventListener('submit',e=>{e.preventDefault();if(code.value.trim()==='101001'){gate.style.display='none';card.style.display='block';document.title='Для тебя 💙';}else{error.textContent='Код не подошёл. Попробуй ещё раз 💙';code.value='';code.focus();}});
-document.getElementById('back').addEventListener('click',()=>{card.style.display='none';gate.style.display='block';code.value='';error.textContent='';document.title='Открытка для тебя 💙';});
+
+document.getElementById("unlockForm").addEventListener("submit", function(event) {
+
+  event.preventDefault();
+
+  const code = document.getElementById("code").value.trim();
+
+  const error = document.getElementById("error");
+
+  if (code === "101001") {
+
+    document.getElementById("lock").style.display = "none";
+
+    document.getElementById("letter").style.display = "block";
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+  } else {
+
+    error.textContent = "Неправильный код. Попробуй ещё раз ♡";
+
+    document.getElementById("code").value = "";
+
+  }
+
+});
+
 </script>
+
 </body>
+
 </html>
